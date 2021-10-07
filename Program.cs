@@ -1,26 +1,27 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using SendGrid;
+using SendGrid.Helpers.Mail;
 
-namespace Email_Service
+namespace SendEmail
 {
-    public class Program
+    class program
     {
-        public static void Main(string[] args)
+        static void Main(string [] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            Execute().Wait();
         }
 
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder =>
-                {
-                    webBuilder.UseStartup<Startup>();
-                });
+        static async Task Execute(){
+            var apiKey = Environment.GetEnvironmentVariable("SENDGRID_API_KEY"); // Store the key first
+            var client = new SendGridClient(apiKey);
+            var from = new EmailAddress("test@example.com", "Tester");
+            var subject = "Sending with SendGrid is Fun";
+            var to = new EmailAddress("manthiladevflow@gmail.com", "Manthila");
+            var plainTextContent = "and easy to do anywhere, even with C#";
+            var htmlContent = "<strong>and easy to do anywhere, even with C#</strong>";
+            var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
+            var response = await client.SendEmailAsync(msg);
+        }
     }
 }
