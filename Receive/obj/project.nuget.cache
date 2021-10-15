@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "we76FvR5pQLR9asRA2mux+M+bIyBh5kIuEiFcx8kJaE7FZ1PPvBbWwSdtYVH1p+9v/3HDSB8JtEnjSohWgBz3g==",
+  "success": true,
+  "projectFilePath": "D:\\Email Service\\Receive\\Receive.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\adeeshaw\\.nuget\\packages\\rabbitmq.client\\6.2.2\\rabbitmq.client.6.2.2.nupkg.sha512",
+    "C:\\Users\\adeeshaw\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
+    "C:\\Users\\adeeshaw\\.nuget\\packages\\system.threading.channels\\4.7.1\\system.threading.channels.4.7.1.nupkg.sha512"
+  ],
+  "logs": []
+}
